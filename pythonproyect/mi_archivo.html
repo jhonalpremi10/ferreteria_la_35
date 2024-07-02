@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar Datos</title>
+</head>
+<body>
+    <h1>Insertar Datos</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Estudiante</h2>
+        {{ estudiante_form.as_p }}
+        <h2>Profesor</h2>
+        {{ profesor_form.as_p }}
+        <h2>Curso</h2>
+        {{ curso_form.as_p }}
+        <h2>Actividad Extracurricular</h2>
+        {{ actividad_form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
