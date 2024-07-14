@@ -1,5 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Blog  # Cambiado a Blog porque parece que es el modelo que estás utilizando
+from django.shortcuts import render
+from .models import Blog, Producto
+  
+ 
+
 
 def blog_list(request):
     blogs = Blog.objects.all()
@@ -8,6 +11,13 @@ def blog_list(request):
 def blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, id=blog_id)
     return render(request, 'pages/blog_detail.html', {'blog': blog})
+
+def listar_productos(request):
+    productos = Producto.objects.all()  
+    return render(request, 'pages/listar_productos.html', {'productos': productos})
+
+
+
 
 
 

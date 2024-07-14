@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi Proyecto Django{% endblock %}</title>
+    <!-- Puedes incluir enlaces a estilos CSS u otros recursos aquí -->
+</head>
+<body>
+    <!-- Cabecera común -->
+    <header>
+        <h1>Bienvenido a Mi Proyecto Django</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="{% url 'about' %}">Acerca de</a></li>
+                <li><a href="{% url 'listar_productos' %}">Productos</a></li>
+                <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                <li><a href="{% url 'registro' %}">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido específico de cada página -->
+    <main>
+        {% block content %}
+        <!-- Este bloque se rellenará con el contenido específico de cada página -->
+        {% endblock %}
+    </main>
+
+    <!-- Pie de página común -->
+    <footer>
+        <p>&copy; 2024 Mi Proyecto Django. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+
+
+
+

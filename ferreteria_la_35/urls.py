@@ -21,13 +21,12 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('registro/', include('cuentas.urls')),
-    path('inicio_sesion/', include('cuentas.urls')),
-    path('perfil/', include('cuentas.urls')),
-    path('about/', include('cuentas.urls')),
-    path('pages/', include('pages.urls')),  # Ruta para blogs
-    path('', views.home, name='home'),
+    path('cuentas/', include('cuentas.urls')),  # Ruta para la aplicación cuentas
+    path('pages/', include('pages.urls')),      # Ruta para la aplicación pages
+    path('', views.home, name='home'),          # Ruta para la página de inicio
 ]
+
+
 
 
 

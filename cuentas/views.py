@@ -10,7 +10,7 @@ def signup(request):
             return redirect('login')
     else:
         form = UserCreationForm()
-    return render(request, 'cuentas/signup.html', {'form': form})
+    return render(request, 'accounts/signup.html', {'form': form})
 
 def login_usuario(request):
     if request.method == 'POST':
@@ -18,15 +18,16 @@ def login_usuario(request):
         if form.is_valid():
             user = form.get_user()
             auth_login(request, user)
-            return redirect('profile')
+            return redirect('perfil')
     else:
         form = AuthenticationForm()
-    return render(request, 'cuentas/login.html', {'form': form})
+    return render(request, 'accounts/login.html', {'form': form})
 
 def profile(request):
-    return render(request, 'cuentas/profile.html')
+    return render(request, 'accounts/profile.html')
 
 def about(request):
-    return render(request, 'cuentas/about.html')
+    return render(request, 'accounts/about.html')
+
 
 

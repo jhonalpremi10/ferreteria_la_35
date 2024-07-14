@@ -1,0 +1,12 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}Detalle de Producto - Mi Proyecto Django{% endblock %}
+
+{% block content %}
+<h2>Detalle de Producto</h2>
+<p>Nombre: {{ producto.nombre }}</p>
+<p>Descripción: {{ producto.descripcion }}</p>
+<p>Precio: {{ producto.precio }}</p>
+<!-- Puedes añadir más detalles del producto según sea necesario -->
+{% endblock %}
+
