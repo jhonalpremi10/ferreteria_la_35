@@ -1,0 +1,16 @@
+<!-- templates/pages/blog_index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Blogs - Ferretería La 35</title>
+</head>
+<body>
+    <h1>Listado de Blogs</h1>
+    <ul>
+        {% for blog in blogs %}
+        <li><a href="{% url 'blog_detail' blog.id %}">{{ blog.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

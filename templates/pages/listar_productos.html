@@ -1,12 +1,13 @@
-{% extends 'pages/base.html' %}
-
-{% block title %}Lista de Productos - Mi Proyecto Django{% endblock %}
-
+html
+{% extends 'base.html' %}
+{% block title %}Páginas{% endblock %}
 {% block content %}
-<h2>Listado de Productos</h2>
+<h2>Listado de Páginas</h2>
 <ul>
-    {% for producto in productos %}
-    <li><a href="{% url 'detalle_producto' producto.id %}">{{ producto.nombre }}</a></li>
+    {% for page in pages %}
+        <li><a href="{% url 'page_detail' page.id %}">{{ page.title }}</a> - {{ page.author }}</li>
     {% endfor %}
 </ul>
 {% endblock %}
+
+

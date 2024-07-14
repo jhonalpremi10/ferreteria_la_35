@@ -1,24 +1,12 @@
-
 from django.shortcuts import render, get_object_or_404
-from .models import Producto, Post
-from .forms import ProductoForm
+from .models import Page  # Asegúrate de importar tu modelo Page desde donde esté definido
 
-# Vista para listar productos
-def listar_productos(request):
-    productos = Producto.objects.all()
-    return render(request, 'productos/listar_productos.html', {'productos': productos})
-
-# Vista para el detalle del producto
-def detalle_producto(request, id):
-    producto = get_object_or_404(Producto, id=id)
-    return render(request, 'productos/detalle_producto.html', {'producto': producto})
-
-# Vista para listar posts del blog
 def blog_index(request):
-    posts = Post.objects.all().order_by('-created_at')
-    return render(request, 'productos/blog_index.html', {'posts': posts})
+    pages = Page.objects.all()
+    return render(request, 'pages/blog_index.html', {'pages': pages})
 
-# Vista para el detalle del post
-def blog_detail(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-    return render(request, 'productos/blog_detail.html', {'post': post})
+def blog_detail(request, page_id):
+    page = get_object_or_404(Page, id=page_id)
+    return render(request, 'pages/blog_detail.html', {'page': page})
+
+

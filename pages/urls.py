@@ -1,11 +1,12 @@
-# En pages/urls.py
-
 from django.urls import path
-from . import views
+from .views import page_list_view, page_detail_view
 
 urlpatterns = [
-    path('', views.blog_list, name='blog_list'),
-    path('<int:blog_id>/', views.blog_detail, name='blog_detail'),
-    path('listar-productos/', views.listar_productos, name='listar_productos'),
-   
+    path('', page_list_view, name='page_list'),
+    path('<int:page_id>/', page_detail_view, name='page_detail'),
 ]
+
+
+
+
+

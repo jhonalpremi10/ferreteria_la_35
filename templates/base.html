@@ -1,24 +1,76 @@
+html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Mi Proyecto Django{% endblock %}</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <!-- Cabecera común a todas las páginas -->
     <header>
-        <h1>¡Bienvenido a mi Proyecto Django!</h1>
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Inicio</a></li>
                 <li><a href="{% url 'about' %}">Acerca de</a></li>
-                <li><a href="{% url 'listar_productos' %}">Productos</a></li>
+                <li><a href="{% url 'page_list' %}">Páginas</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Perfil</a></li>
+                    <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                    <li><a href="{% url 'signup' %}">Registrarse</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
-    {% block content %}
-    {% endblock %}
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Mi Proyecto Django. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
+
+
+#### cuentas/signup.html
+
+html
+{% extends 'base.html' %}
+{% block title %}Registro{% endblock %}
+{% block content %}
+<h2>Registro</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Registrarse</button>
+</form>
+{% endblock %}
+
+
+#### pages/page_list.html
+
+html
+{% extends 'base.html' %}
+{% block title %}Páginas{% endblock %}
+{% block content %}
+<h2>Listado de Páginas</h2>
+<ul>
+    {% for page in pages %}
+        <li><a href="{% url 'page_detail' page.id %}">{{ page.title }}</a> - {{ page.author }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+
+#### pages/page_detail.html
+
+html
+{% extends 'base.html' %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+<h2>{{ page.title }}</h2>
+<p>{{ page.content }}</p>
+<p>Autor: {{ page.author }}</p>
+{% endblock %}
+
