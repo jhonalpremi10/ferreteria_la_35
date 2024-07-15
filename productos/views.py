@@ -1,7 +1,10 @@
-
 from django.shortcuts import render, get_object_or_404
 from .models import Producto, Post
 from .forms import ProductoForm
+
+# Vista para la página de inicio
+def home(request):
+    return render(request, 'home.html')
 
 # Vista para listar productos
 def listar_productos(request):

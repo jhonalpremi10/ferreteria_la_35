@@ -16,14 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from productos.views import home  # Importa la vista home de productos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
-    path('about/', include('about.urls')),
-    path('pages/', include('pages.urls')),
-    path('productos/', include('productos.urls')),  # Incluye las URLs de productos
-    path('clientes/', include('clientes.urls')),  # Incluye las URLs de clientes
-    path('', home, name='home'),  # Ruta para la página de inicio
+    path('accounts/', include('accounts.urls')),  # Incluir las URLs de la aplicación 'accounts'
+    path('about/', include('about.urls')),  # Incluir las URLs de la aplicación 'about'
+    path('pages/', include('pages.urls')),  # Incluir las URLs de la aplicación 'pages'
+    path('productos/', include('productos.urls')),  # Incluir las URLs de la aplicación 'productos'
+    path('clientes/', include('clientes.urls')),  # Incluir las URLs de la aplicación 'clientes'
 ]
+
+

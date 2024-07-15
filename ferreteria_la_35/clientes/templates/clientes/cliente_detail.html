@@ -1,0 +1,20 @@
+<!-- clientes/templates/clientes/cliente_detail.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Cliente</title>
+</head>
+<body>
+    <h1>Detalle del Cliente</h1>
+    <h2>{{ cliente.nombre }}</h2>
+    <p><strong>ID:</strong> {{ cliente.id }}</p>
+    <p><strong>Correo Electrónico:</strong> {{ cliente.email }}</p>
+    <p><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
+    <p><strong>Dirección:</strong> {{ cliente.direccion }}</p>
+    <!-- Agrega más campos según sea necesario -->
+    <a href="{% url 'cliente_list' %}">Volver al listado de clientes</a>
+</body>
+</html>

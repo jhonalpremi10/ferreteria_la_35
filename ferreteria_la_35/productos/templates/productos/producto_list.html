@@ -1,0 +1,17 @@
+<!-- productos/templates/productos/producto_list.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h1>Lista de Productos</h1>
+    <ul>
+        {% for producto in productos %}
+            <li><a href="{% url 'detalle_producto' producto.id %}">{{ producto.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

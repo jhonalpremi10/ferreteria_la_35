@@ -15,12 +15,10 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'tu_clave_secreta_generada'
-  
 
 DEBUG = True  # Cambiar a False en producción
 
-ALLOWED_HOSTS = ['tudominio.com', 'www.tudominio.com', 'dirección.ip.aqui']
-
+ALLOWED_HOSTS = ['tudominio.com', 'www.tudominio.com', '127.0.0.1', 'localhost']
 
 # Aplicaciones instaladas
 INSTALLED_APPS = [
@@ -30,26 +28,31 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',    # Tu aplicación de cuentas
-    'about',       # Tu aplicación de acerca de mí
-    'pages',       # Tu aplicación de páginas
-    'productos',   # Opcional: Tu aplicación de productos
-    'clientes',    # Opcional: Tu aplicación de clientes
+    'accounts',
+    'about',
+    'pages',
+    'productos',
+    'clientes',
 ]
 
+# Middleware para la aplicación de administración
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
 
 # Configuración de la base de datos (SQLite en este ejemplo)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nombre_basedatos',
-        'USER': 'usuario_basedatos',
-        'PASSWORD': 'contraseña_basedatos',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Configuración de archivos estáticos (CSS, JavaScript, imágenes, etc.)
 STATIC_URL = '/static/'
@@ -59,7 +62,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 
 # Configuración de plantillas (HTML)
 TEMPLATES = [
@@ -80,7 +82,6 @@ TEMPLATES = [
     },
 ]
 
-
 # Configuración de URL para redireccionar al login
 LOGIN_REDIRECT_URL = '/'
 
@@ -91,14 +92,9 @@ LOGOUT_REDIRECT_URL = '/'
 LANGUAGE_CODE = 'es'
 TIME_ZONE = 'America/Bogota'
 
-# Middleware para la aplicación de administración
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+# Otros ajustes
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
 
