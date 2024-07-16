@@ -16,14 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from pages.views import home_view  # Importar la vista home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home_view, name='home'),  # Añadir la ruta para la URL raíz
     path('accounts/', include('accounts.urls')),  # Incluir las URLs de la aplicación 'accounts'
     path('about/', include('about.urls')),  # Incluir las URLs de la aplicación 'about'
     path('pages/', include('pages.urls')),  # Incluir las URLs de la aplicación 'pages'
     path('productos/', include('productos.urls')),  # Incluir las URLs de la aplicación 'productos'
     path('clientes/', include('clientes.urls')),  # Incluir las URLs de la aplicación 'clientes'
 ]
+
+
 
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-def about(request):
-    # Aquí puedes agregar lógica relacionada con la vista "Acerca de"
+def about_view(request):
     return render(request, 'about/about.html')
+
 
