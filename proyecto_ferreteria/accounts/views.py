@@ -1,14 +1,9 @@
-from django.shortcuts import render
+from django.contrib.auth.views import LoginView
+from .forms import LoginForm
 
-def signup(request):
-    # Define lógica para el registro aquí
-    return render(request, 'registration/signup.html')
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
+    authentication_form = LoginForm
 
-def login(request):
-    # Define lógica para el inicio de sesión aquí
-    return render(request, 'registration/login.html')
 
-def profile(request):
-    # Define lógica para el perfil aquí
-    return render(request, 'registration/profile.html')
 
