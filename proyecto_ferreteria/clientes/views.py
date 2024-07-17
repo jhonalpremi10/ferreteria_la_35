@@ -1,6 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Cliente
 
 def cliente_list(request):
-    # Aquí puedes agregar lógica para listar todos los clientes si es necesario
-    return render(request, "clientes/cliente_list.html")
+    clientes = Cliente.objects.all()
+    return render(request, 'clientes/cliente_list.html', {'clientes': clientes})
+
+def cliente_detail(request, cliente_id):
+    cliente = get_object_or_404(Cliente, id=cliente_id)
+    return render(request, 'clientes/cliente_detail.html', {'cliente': cliente})
+
 

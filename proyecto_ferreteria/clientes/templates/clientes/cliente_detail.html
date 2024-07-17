@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Detalle de Cliente</title>
-</head>
-<body>
-    <h1>Detalle de Cliente</h1>
-    <!-- Detalle de un cliente específico -->
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>{{ cliente.first_name }} {{ cliente.last_name }}</h2>
+  <p>Email: {{ cliente.email }}</p>
+  <p>Teléfono: {{ cliente.phone }}</p>
+  <p>Dirección: {{ cliente.address }}</p>
+{% endblock %}
+

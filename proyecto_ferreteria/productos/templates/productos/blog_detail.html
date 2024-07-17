@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog Detail</title>
-</head>
-<body>
-    <h1>Blog Detail</h1>
-    <!-- Contenido para mostrar detalle de un blog específico -->
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>{{ producto.name }}</h2>
+  <p>{{ producto.description }}</p>
+  <p>Precio: {{ producto.price }}</p>
+  <p>Stock: {{ producto.stock }}</p>
+{% endblock %}
+

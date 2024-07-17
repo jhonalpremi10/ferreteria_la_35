@@ -1,23 +1,16 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Blog, Comment
-from .forms import CommentForm
+from django.shortcuts import render, get_object_or_404
+from .models import Page
 
-def blog_detail(request, blog_id):
-    blog = get_object_or_404(Blog, id=blog_id)
-    comments = blog.comments.all()
-    
-    if request.method == "POST":
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.blog = blog
-            comment.author = request.user
-            comment.save()
-            return redirect('blog_detail', blog_id=blog_id)
-    else:
-        form = CommentForm()
-    
-    return render(request, 'pages/page_detail.html', {'blog': blog, 'comments': comments, 'form': form})
+def page_list(request):
+    pages = Page.objects.all()
+    return render(request, 'pages/page_list.html', {'pages': pages})
+
+def page_detail(request, page_id):
+    page = get_object_or_404(Page, id=page_id)
+    return render(request, 'pages/page_detail.html', {'page': page})
+
+
+
 
 
 
