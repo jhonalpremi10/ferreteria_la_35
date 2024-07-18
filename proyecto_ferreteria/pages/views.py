@@ -22,3 +22,5 @@ def page_detail(request, page_id):
 
 
 
+
+

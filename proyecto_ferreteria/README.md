@@ -12,12 +12,8 @@ Puedes ver una demostración del proyecto en [este video](https://youtu.be/1cMvJ
 ```bash
 git clone https://github.com/tu-usuario/ferreteria_la_35.git
 cd C:\Users\jhon\ferreteria_la_35\proyecto_ferreteria
-python -m venv mi_entorno_virtual
 .\mi_entorno_virtual\Scripts\Activate.ps1
-pip install django
-pip show Pillow
-pip install --force-reinstall Pillow
-python -m pip install --upgrade pip
 python manage.py runserver
+
 
 
