@@ -1,6 +1,9 @@
+# accounts/views.py
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login as auth_login
+from django.contrib import messages
 from .forms import CustomUserCreationForm
 
 def signup(request):
@@ -13,7 +16,10 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             if user is not None:
                 auth_login(request, user)
-                return redirect('home')
+                messages.success(request, 'Registro exitoso. ¡Bienvenido!')
+                return redirect('home')  # Asegúrate de que 'home' esté definido en tus URLs
+            else:
+                messages.error(request, 'Error al autenticar al usuario.')
     else:
         form = CustomUserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
@@ -27,12 +33,17 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 auth_login(request, user)
-                return redirect('home')
+                return redirect('home')  # Asegúrate de que 'home' esté definido en tus URLs
             else:
-                form.add_error(None, 'Invalid username or password')
+                form.add_error(None, 'Nombre de usuario o contraseña inválidos')
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
+
+
+
+
+
 
 
 
