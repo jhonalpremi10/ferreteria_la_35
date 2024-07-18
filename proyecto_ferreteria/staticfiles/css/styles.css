@@ -1,0 +1,22 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #343a40 !important;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: #d4d4d4 !important;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+}

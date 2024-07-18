@@ -2,7 +2,7 @@
 
 Este proyecto es una aplicación web desarrollada con Django que permite gestionar usuarios, páginas de blogs, productos y clientes. Incluye funcionalidades de autenticación, visualización de listas y detalles de elementos, y gestión de perfiles de usuario.
 
-Demostración: 
+Demostración: https://youtu.be/1cMvJ5c3g5w
 
     ```bash
     git clone https://github.com/tu-usuario/tu-proyecto.git

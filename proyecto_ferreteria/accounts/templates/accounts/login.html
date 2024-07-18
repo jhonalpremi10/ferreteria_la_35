@@ -1,10 +1,14 @@
-{% extends "base.html" %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
-{% block content %}
-  <h2>Login</h2>
-  <form method="post">
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Login</button>
-  </form>
-{% endblock %}
+    <button type="submit">Iniciar sesión</button>
+</form>
+
