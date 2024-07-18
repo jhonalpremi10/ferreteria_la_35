@@ -1,12 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Producto
 
-def producto_list(request):
+def lista_productos(request):
     productos = Producto.objects.all()
-    return render(request, 'productos/producto_list.html', {'productos': productos})
+    return render(request, 'productos/lista_productos.html', {'productos': productos})
 
-def producto_detail(request, producto_id):
+def detalle_producto(request, producto_id):
     producto = get_object_or_404(Producto, id=producto_id)
-    return render(request, 'productos/producto_detail.html', {'producto': producto})
+    return render(request, 'productos/detalle_producto.html', {'producto': producto})
+
+
+
 
 

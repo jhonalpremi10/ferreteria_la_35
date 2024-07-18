@@ -5,9 +5,10 @@
   <ul>
     {% for producto in productos %}
       <li>
-        <a href="{% url 'producto_detail' producto.id %}">{{ producto.name }}</a>
+        <a href="{% url 'producto_detail' producto.id %}">{{ producto.nombre }}</a>
       </li>
     {% endfor %}
   </ul>
 {% endblock %}
+
 

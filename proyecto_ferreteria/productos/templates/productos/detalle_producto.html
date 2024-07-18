@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ producto.nombre }}</h2>
+<img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+<p>{{ producto.descripcion }}</p>
+<p>Precio: ${{ producto.precio }}</p>
+<a href="{% url 'lista_productos' %}">Volver a la lista de productos</a>
+{% endblock %}
+
