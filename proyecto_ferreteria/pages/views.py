@@ -3,8 +3,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Page
 from .forms import PageForm
 
+
 def home(request):
     return render(request, 'pages/home.html')
+
 
 def page_list(request):
     pages = Page.objects.all()

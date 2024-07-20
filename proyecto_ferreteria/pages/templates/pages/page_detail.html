@@ -1,10 +1,16 @@
-{% extends "base.html" %}
+<!-- pages/page_detail.html -->
+
+{% extends 'base.html' %}
 
 {% block content %}
   <h1>{{ page.title }}</h1>
   <p>{{ page.content }}</p>
-  <p>Publicado el {{ page.publish_date }}</p>
+  <p>Publicado el: {{ page.publish_date }}</p>
+  {% if page.image %}
+    <img src="{{ page.image.url }}" alt="{{ page.title }}">
+  {% endif %}
 {% endblock %}
+
 
 
 

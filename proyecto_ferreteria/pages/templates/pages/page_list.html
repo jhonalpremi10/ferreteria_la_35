@@ -1,28 +1,61 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Lista de Blogs</h1>
+<h1>Bienvenido a Ferretería La 35</h1>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Título</th>
-            <th>Fecha de Publicación</th>
+            <th>estamos para ustdes </th>
+            <th> "Visítanos en nuestras instalaciones".</th>
         </tr>
     </thead>
     <tbody>
         {% for blog in blogs %}
         <tr>
             <td><a href="{% url 'page_detail' blog.id %}">{{ blog.title }}</a></td>
-            <td>{{ blog.publish_date }}</td>
+            <td>{{ blog.publish_date|date:"d M Y" }}</td>
         </tr>
         {% empty %}
         <tr>
-            <td colspan="2">No hay blogs disponibles.</td>
+            <td colspan="2">
+                <h2>Título: ¡Nueva Línea de Herramientas Eléctricas en Nuestra Ferretería!</h2>
+                <p><strong>Fecha de Publicación:</strong> 18 de julio de 2024</p>
+                <p>Contenido: Estamos emocionados de anunciar la llegada de nuestra nueva línea de herramientas eléctricas. Desde taladros de última generación hasta sierras circulares de alto rendimiento, tenemos todo lo que necesitas para tus proyectos de bricolaje y construcción. Visítanos para descubrir nuestras ofertas especiales y encuentra la herramienta perfecta para tu próximo proyecto.</p>
+                <p><strong>Producto Destacado:</strong> Taladro Inalámbrico XYZ 2024</p>
+                
+                <h2>Título: ¡Gran Venta de Verano en Herramientas y Materiales!</h2>
+                <p><strong>Fecha de Publicación:</strong> 18 de julio de 2024</p>
+                <p>Contenido: ¡No te pierdas nuestra Gran Venta de Verano! Ofrecemos descuentos de hasta un 30% en una amplia gama de herramientas y materiales de construcción. Es el momento perfecto para actualizar tu caja de herramientas o adquirir materiales para tus proyectos de renovación. La oferta es válida hasta el 31 de julio, ¡así que apresúrate!</p>
+                <p><strong>Producto Destacado:</strong> Kit de Herramientas Completo - 25% de Descuento</p>
+                
+                <h2>Título: Consejos Esenciales para el Mantenimiento de tus Herramientas</h2>
+                <p><strong>Fecha de Publicación:</strong> 18 de julio de 2024</p>
+                <p>Contenido: Mantener tus herramientas en buen estado es crucial para garantizar su rendimiento y durabilidad. Aquí te compartimos algunos consejos prácticos para el mantenimiento de tus herramientas:</p>
+                <ul>
+                    <li>Limpia tus herramientas después de cada uso.</li>
+                    <li>Lubrica las partes móviles regularmente.</li>
+                    <li>Almacena tus herramientas en un lugar seco y seguro.</li>
+                    <li>Revisa y afila las cuchillas y brocas de manera periódica.</li>
+                </ul>
+                <p>Visítanos para obtener más consejos y los productos adecuados para el cuidado de tus herramientas.</p>
+                <p><strong>Producto Destacado:</strong> Kit de Mantenimiento para Herramientas</p>
+                
+                <h2>Título: ¡Nuevo Servicio de Entrega a Domicilio!</h2>
+                <p><strong>Fecha de Publicación:</strong> 18 de julio de 2024</p>
+                <p>Contenido: Ahora ofrecemos un nuevo servicio de entrega a domicilio para que puedas recibir tus productos de ferretería sin salir de casa. Solo tienes que hacer tu pedido en línea o por teléfono, y nuestro equipo se encargará de llevarlo hasta tu puerta. ¡Aprovecha la comodidad y elige la opción de entrega a domicilio en tu próximo pedido!</p>
+                <p><strong>Producto Destacado:</strong> Servicio de Entrega Express - ¡Gratis en compras mayores a $100!</p>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+
+<p>Escríbenos a <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a> para hacer tus pedidos.</p>
+
 {% endblock %}
+
+
+
 
 
 
