@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Page  # Importa el modelo Page
+# pages/views.py
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Page
+from .forms import PageForm
 
 def home(request):
-    return render(request, 'pages/home.html')  # Ajusta 'pages/home.html' según la ruta correcta de tu plantilla de inicio
+    return render(request, 'pages/home.html')
 
 def page_list(request):
     pages = Page.objects.all()
@@ -11,6 +13,19 @@ def page_list(request):
 def page_detail(request, page_id):
     page = get_object_or_404(Page, id=page_id)
     return render(request, 'pages/page_detail.html', {'page': page})
+
+def add_news(request):
+    if request.method == 'POST':
+        form = PageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('page_list')
+    else:
+        form = PageForm()
+    return render(request, 'pages/add_news.html', {'form': form})
+
+
+
 
 
 

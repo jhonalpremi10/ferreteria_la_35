@@ -1,14 +1,36 @@
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Blogs</title>
-</head>
-<body>
-    <h1>Lista de Blogs</h1>
-</body>
-</html>
+{% block content %}
+<h1>Lista de Blogs</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Fecha de Publicación</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for blog in blogs %}
+        <tr>
+            <td><a href="{% url 'page_detail' blog.id %}">{{ blog.title }}</a></td>
+            <td>{{ blog.publish_date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="2">No hay blogs disponibles.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+
+
+
+
+
+
 
 
 

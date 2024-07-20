@@ -19,16 +19,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from pages import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home, name='home'),  # Página de inicio
+    path('about/', include('about.urls')),
     path('accounts/', include('accounts.urls')),
+    path('clientes/', include('clientes.urls')),
+    path('pages/', include('pages.urls')),
     path('productos/', include('productos.urls')),
-    path('about/', include('about.urls')),  # Agregamos esta línea
-    path('', include('pages.urls')),
 ]
 
 if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

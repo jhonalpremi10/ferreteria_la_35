@@ -1,8 +1,11 @@
+# pages/forms.py
 from django import forms
-from .models import Comment
+from .models import Page
 
-class CommentForm(forms.ModelForm):
+class PageForm(forms.ModelForm):
     class Meta:
-        model = Comment
-        fields = ('text',)  # Ajusta los campos según tu modelo Comment
+        model = Page
+        fields = ['title', 'content', 'publish_date']
+
+
 

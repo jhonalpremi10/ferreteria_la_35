@@ -1,15 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Clientes</h2>
-  <ul>
-    {% for cliente in clientes %}
-      <li>
-        <a href="{% url 'cliente_detail' cliente.id %}">{{ cliente.first_name }} {{ cliente.last_name }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+<h2>Lista de Clientes</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td><a href="{% url 'cliente_detail' cliente.id %}">{{ cliente.first_name }} {{ cliente.last_name }}</a></td>
+            <td>{{ cliente.email }}</td>
+            <td>{{ cliente.phone }}</td>
+            <td>{{ cliente.address }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
+
 
 
 

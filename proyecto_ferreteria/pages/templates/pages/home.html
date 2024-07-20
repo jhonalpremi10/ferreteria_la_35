@@ -1,8 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
     <h1>Bienvenido a Ferretería La 35</h1>
     <p>Esta es la página de inicio.</p>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{% static 'images/ferreteria1.jpg' %}" class="img-fluid" alt="Ferretería La 35 - Imagen 1">
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/ferreteria2.jpg' %}" class="img-fluid" alt="Ferretería La 35 - Imagen 2">
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/ferreteria3.jpg' %}" class="img-fluid" alt="Ferretería La 35 - Imagen 3">
+        </div>
+    </div>
 {% endblock %}
+
+
 
 

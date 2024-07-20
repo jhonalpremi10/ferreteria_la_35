@@ -1,14 +1,11 @@
-{% extends 'base.html' %}
-
-{% block title %}{{ product.name }}{% endblock %}
+{% extends "base.html" %}
 
 {% block content %}
-<h1>{{ product.name }}</h1>
-<p>{{ product.description }}</p>
-<p>Precio: {{ product.price }}</p>
-<p>Publicado el {{ product.created_at }}</p>
-<a href="{% url 'product_list' %}">Volver a la lista</a>
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.content }}</p>
+  <p>Publicado el {{ page.publish_date }}</p>
 {% endblock %}
+
 
 
 
