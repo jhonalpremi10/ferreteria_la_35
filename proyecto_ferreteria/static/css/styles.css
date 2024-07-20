@@ -17,12 +17,21 @@ body {
     background-color: #0056b3;
     border-color: #004085;
 }
+
 .custom-image {
-    max-width: 100%;
-    height: auto;
+    max-width: 300px; /* Ajusta este valor al tamaño deseado */
+    height: auto; /* Mantiene la proporción de la imagen */
     border: 1px solid #ddd; /* Optional: Add a border */
     border-radius: 4px; /* Optional: Add rounded corners */
     padding: 5px; /* Optional: Add some padding */
 }
 
 /* Agrega más estilos según sea necesario */
+
+.blog-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}

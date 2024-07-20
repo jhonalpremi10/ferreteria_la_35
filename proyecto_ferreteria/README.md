@@ -4,7 +4,7 @@ Este proyecto es una aplicación web desarrollada con Django que permite gestion
 
 
 
-Puedes ver una demostración del proyecto en [este video](https://youtu.be/HHlfBGkG9MM).
+Puedes ver una demostración del proyecto en [este video](https://youtu.be/KawVUHdJvyg).
 
 
 
