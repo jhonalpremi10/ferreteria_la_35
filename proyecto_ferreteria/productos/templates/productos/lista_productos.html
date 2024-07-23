@@ -1,31 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Productos</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Precio</th>
-            <th>Imagen</th>
-        </tr>
-    </thead>
-    <tbody>
+    <h1>Lista de Productos</h1>
+    <a href="{% url 'nuevo_producto' %}" class="btn btn-primary">Agregar Nuevo Producto</a>
+    <ul>
         {% for producto in productos %}
-        <tr>
-            <td>{{ producto.nombre }}</td>
-            <td>{{ producto.descripcion }}</td>
-            <td>{{ producto.precio }}</td>
-            <td>
-                {% if producto.imagen %}
-                <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" style="max-height: 100px;">
-                {% else %}
-                No hay imagen
-                {% endif %}
-            </td>
-        </tr>
+            <li>
+                <a href="{% url 'detalle_producto' producto.id %}">{{ producto.nombre }}</a>
+                <a href="{% url 'editar_producto' producto.id %}" class="btn btn-warning">Editar</a>
+                <form action="{% url 'eliminar_producto' producto.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+            </li>
         {% endfor %}
-    </tbody>
-</table>
+    </ul>
 {% endblock %}

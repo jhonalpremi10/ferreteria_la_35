@@ -1,8 +1,0 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h2>{{ blog.title }}</h2>
-<p>{{ blog.content }}</p>
-<p><small>Publicado el {{ blog.publish_date }}</small></p>
-<a href="{% url 'page_list' %}" class="btn btn-primary">Volver a la lista</a>
-{% endblock %}

@@ -1,4 +1,3 @@
-# productos/views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Producto
 from .forms import ProductoForm
@@ -38,6 +37,10 @@ def eliminar_producto(request, producto_id):
         producto.delete()
         return redirect('lista_productos')
     return render(request, 'productos/confirmar_eliminar.html', {'producto': producto})
+
+
+
+
 
 
 
